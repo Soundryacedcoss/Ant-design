@@ -13,7 +13,7 @@ export const LandingPage = () => {
       <Select
         defaultValue="Select"
         style={{
-          width: 120,
+          width: 190,
         }}
         onChange={handleChange}
         options={[
@@ -24,11 +24,6 @@ export const LandingPage = () => {
           {
             value: "comentsUser",
             label: "ComentsUserData",
-          },
-          {
-            value: "disabled",
-            disabled: true,
-            label: "Disabled",
           },
         ]}
       />

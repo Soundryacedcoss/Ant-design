@@ -6,7 +6,16 @@ export const User = () => {
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
-      .then((val) => setUserData(val));
+      .then((val) =>
+        setUserData(
+          val.map((item) => ({
+            id: item.id,
+            name: item.name,
+            key: item.id,
+            email: item.email,
+          }))
+        )
+      );
   }, []);
   console.log(userdata);
   const columns = [
@@ -32,7 +41,7 @@ export const User = () => {
       <Table
         columns={columns}
         expandable={{
-          expandedRowRender: (record, description) => (
+          expandedRowRender: (record) => (
             <p
               style={{
                 margin: 0,

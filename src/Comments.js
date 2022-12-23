@@ -6,7 +6,16 @@ export const Comments = () => {
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/comments")
       .then((res) => res.json())
-      .then((val) => setCommentData(val));
+      .then((val) =>
+        setCommentData(
+          val.map((item1) => ({
+            id: item1.id,
+            name: item1.name,
+            key: item1.id,
+            body: item1.body,
+          }))
+        )
+      );
   }, []);
   const columns = [
     {
